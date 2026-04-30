@@ -13,8 +13,8 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Top Up", href: "/counter" },
-  { name: "About", href: "#", current: false },
+  { name: "Register", href: "/register" , current: false},
+  { name: "Login", href: "/login", current: false },
 ];
 
 function classNames(...classes: (string | undefined | false | null)[]) {
@@ -93,7 +93,7 @@ export default function NavigationBar() {
                 <span className="sr-only">Open user menu</span>
                 <img
                   alt=""
-                  src="https://i.pinimg.com/736x/c7/8d/54/c78d5474feed8b2ed40ed332a1c5c18a.jpg"
+                  src="https://i.pinimg.com/736x/29/0f/f4/290ff47027c529ee3ff4aaf7d4075bea.jpg"
                   className="size-8 rounded-full bg-gray-800 outline outline-1 -outline-offset-1 outline-white/10"
                 />
               </MenuButton>
@@ -103,29 +103,22 @@ export default function NavigationBar() {
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-800 py-1 outline outline-1 -outline-offset-1 outline-white/10 transition data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <MenuItem>
-                  <a
-                    href="#"
+                  <Link
+                    href="/register"
                     className="block px-4 py-2 text-sm text-gray-300 data-[focus]:bg-white/5 data-[focus]:outline-none"
                   >
-                    Your profile
-                  </a>
+                    Sign Up
+                  </Link>
                 </MenuItem>
                 <MenuItem>
-                  <a
-                    href="#"
+                  <Link
+                    href="/login"
                     className="block px-4 py-2 text-sm text-gray-300 data-[focus]:bg-white/5 data-[focus]:outline-none"
                   >
-                    Settings
-                  </a>
+                    Login
+                  </Link>
                 </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-300 data-[focus]:bg-white/5 data-[focus]:outline-none"
-                  >
-                    Sign out
-                  </a>
-                </MenuItem>
+
               </MenuItems>
             </Menu>
           </div>

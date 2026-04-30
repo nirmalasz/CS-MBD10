@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -19,40 +20,39 @@ export default function Login() {
     setError("");
   };
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center">
-      <div className="py-4 px-4 md:px-8">
-        <div className="grid items-center gap-6 max-w-6xl w-full lg:grid-cols-2">
-          <div className="border border-slate-300 rounded-lg p-6 max-w-md mx-auto shadow-sm md:p-8 lg:mx-0 dark:border-neutral-700">
-            <div className="mb-8">
-              <h1 className="text-slate-900 text-3xl font-bold mb-4 dark:text-slate-50">
-                Sign in
-              </h1>
-              <p className="text-slate-600 text-base leading-relaxed dark:text-slate-400">
-                Sign in to your account to access your dashboard and manage your
-                projects.
-              </p>
-            </div>
+    <main className="min-h-screen flex items-center justify-center">
+      
+      <div className="py-4 px-4 md:px-8 w-full flex justify-center">
+        <div className="border border-[#515967] rounded-lg p-6 max-w-md mx-auto shadow-sm md:p-8 lg:mx-0 bg-[#111825]">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold mb-4 text-slate-50">Sign in</h1>
+            <p className=" text-base leading-relaxed text-slate-400">
+              Sign in to your account to add and buy our
+            </p>
+          </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="john.pork@ui.ac.id"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
-                />
-              </div>
-              <div>
-                <label className="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50">
-                  Password
-                </label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="mb-2  font-medium text-sm inline-block text-slate-50">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john.pork@ui.ac.id"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                suppressHydrationWarning
+                className="px-3 py-2.5 text-sm  rounded-md  w-full outline-1 -outline-offset-1 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 text-slate-50 bg-[#0e1420] outline-neutral-700"
+              />
+            </div>
+            <div>
+              <label className="mb-1 font-medium text-sm block py-1 text-slate-50">
+                Password
+              </label>
+              <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
@@ -60,7 +60,8 @@ export default function Login() {
                   placeholder="••••••••"
                   required
                   onChange={(e) => setPassword(e.target.value)}
-                  className="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+                  suppressHydrationWarning
+                  className="pl-3 pr-10 py-2.5 text-sm  rounded-md w-full outline-1 -outline-offset-1  focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 ext-slate-50 bg-[#0e1420] outline-neutral-700"
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                   <button
@@ -100,74 +101,67 @@ export default function Login() {
                   </button>
                 </div>
               </div>
+            </div>
 
-              <div className="flex items-start flex-wrap gap-2">
-                <label className="flex items-center group has-[input:checked]:text-slate-900">
-                  <input
-                    id="remember"
-                    name="remember"
-                    type="checkbox"
-                    required
-                    className="sr-only"
-                  />
-                  <span
-                    className="flex h-4 w-4 shrink-0 items-center justify-center rounded outline-1 outline-slate-300 dark:outline-neutral-700
-                                    bg-white dark:bg-neutral-800
+            <div className="flex items-start flex-wrap gap-2">
+              <label className="flex items-center group has-[input:checked]:text-slate-900">
+                <input
+                  id="remember"
+                  name="remember"
+                  type="checkbox"
+                  className="sr-only"
+                />
+                <span
+                  className="flex h-4 w-4 shrink-0 items-center justify-center rounded  outline-neutral-700
+                                    bg-neutral-800
                                     group-has-[input:checked]:bg-blue-600
                                     group-has-[input:checked]:outline-blue-600
                                     group-focus-within:outline-2
                                     group-focus-within:outline-blue-600"
-                    aria-hidden="true"
-                  >
-                    <svg
-                      className="size-3 text-white opacity-0 group-has-[input:checked]:opacity-100"
-                      viewBox="0 0 12 10"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M1 5l3 3 7-7" />
-                    </svg>
-                  </span>
-                  <span className="ml-3 text-sm text-slate-700 dark:text-slate-300">
-                    Remember me
-                  </span>
-                </label>
-
-                <a
-                  href="#"
-                  className="ml-auto text-sm font-medium text-blue-700 dark:text-blue-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                  aria-hidden="true"
                 >
-                  Forgot password?
-                </a>
-              </div>
+                  <svg
+                    className="size-3 text-white opacity-0 group-has-[input:checked]:opacity-100"
+                    viewBox="0 0 12 10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M1 5l3 3 7-7" />
+                  </svg>
+                </span>
+                <span className="ml-3 text-sm text-slate-300">Remember me</span>
+              </label>
 
               <button
+                type="button"
+                onClick={() => alert("Forgot password not implemented yet")}
+                className="ml-auto text-sm font-medium text-blue-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+              >
+                Forgot password?
+              </button>
+            </div>
+            <div>
+              <Link href='/'>
+              <button
                 type="submit"
-                className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-[#515967] bg-[#425267] hover:bg-[#2a3441] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 Sign in
               </button>
+              </Link>
+            </div>
 
-              <div className="text-slate-900 text-sm text-center dark:text-slate-50">
-                Don't have an account?{" "}
-                <a
-                  href="#"
-                  className="text-blue-700 hover:underline ml-1 font-medium dark:text-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
-                >
-                  Sign up
-                </a>
-              </div>
-            </form>
-          </div>
-
-          <div className="aspect-[71/50] max-lg:w-4/5 mx-auto">
-            <img
-              src="https://readymadeui.com/images/integration-illus.webp"
-              className="w-full object-cover"
-              alt="login img"
-            />
-          </div>
+            <div className=" text-sm text-center text-slate-50">
+              Don't have an account?{" "}
+              <Link
+                href="/register"
+                className="hover:underline ml-1 font-medium text-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+              >
+                Sign up
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </main>
